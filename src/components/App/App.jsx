@@ -25,13 +25,23 @@ export const App = () => {
   useEffect(() => {
     window.localStorage.setItem('contacts-list', JSON.stringify(contacts));
   }, [contacts]);
+
+  const [filter, setFilter] = useState('');
+
+  const handleFilterChange = e => {
+    setFilter(e.target.value);
+  };
+  const filteredContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
+
   return (
     <div className={css.container}>
       <h1>Phonebook</h1>
 
       <ContactForm />
-      <SearchBox />
-      <ContactList contacts={contacts}/>
+      <SearchBox value={filter} handleFilter={handleFilterChange} />
+      <ContactList contacts={filteredContacts} />
     </div>
   );
 };

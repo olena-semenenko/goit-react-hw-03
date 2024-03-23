@@ -1,10 +1,19 @@
-import React from 'react'
-import css from './SearchBox.module.css'
+import React from 'react';
+import css from './SearchBox.module.css';
 
-const SearchBox = () => {
+const SearchBox = ({ value, handleFilter }) => {
   return (
-    <div>SearchBox</div>
-  )
-}
+    <div className={css.searchBox}>
+      <h4>Find contact by name</h4>
+      <input
+        className={css.searchInput}
+        type="text"
+        placeholder="Enter name..."
+        value={value}
+        onChange={handleFilter}
+      />
+    </div>
+  );
+};
 
-export default SearchBox
+export default SearchBox;
