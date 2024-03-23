@@ -1,7 +1,8 @@
 .contactBox {
   display: flex;
   align-items: center;
-  gap: 100px;
+  justify-content: space-between;
+  width: 100%;
 }
 .name {
   font-weight: 700;

@@ -1,7 +1,7 @@
 import css from './Contact.module.css';
 import { ImUser, ImMobile } from "react-icons/im";
 
-const Contact = ({ name, phone }) => {
+const Contact = ({ name, phone, id, deleteContact }) => {
   return (
     <div className={css.contactBox}>
       <span>
@@ -9,7 +9,7 @@ const Contact = ({ name, phone }) => {
         <p className={css.number}><ImMobile className={css.icon}/> {phone}</p>
       </span>
 
-      <button className={css.button} type="button">Delete</button>
+      <button className={css.button} type="button" onClick={()=> deleteContact(id)}>Delete</button>
     </div>
   );
 };
